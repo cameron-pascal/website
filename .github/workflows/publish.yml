@@ -1,0 +1,27 @@
+name: publish-website
+on:
+  push:
+    branches: master
+
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Add publish key
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh/
+          ssh-keyscan ${{ secrets.PUBLISH_HOST }} >> /home/runner/.ssh/known_hosts
+          echo "${{ secrets.PUBLISH_KEY }}" > ~/.ssh/publish_key
+          chmod 600 ~/.ssh/publish_key
+          ssh-agent -a $SSH_AUTH_SOCK
+          ssh-add ~/.ssh/publish_key
+      - name: Run publish script
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: ./.github/workflows/publish.sh ${{ secrets.PUBLISH_USER }} ${{ secrets.PUBLISH_HOST }} ${{ secrets.PUBLISH_DIR }} ${{ secrets.CLOUDFLARE_ZONE }} ${{ secrets.CLOUDFLARE_TOKEN }}
+          

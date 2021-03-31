@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Hack';
+    src: url('fonts/hack-regular.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-regular.woff?sha=3114f1256') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+  
+@font-face {
+    font-family: 'Hack';
+    src: url('fonts/hack-bold.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-bold.woff?sha=3114f1256') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('fonts/hack-italic.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-italic.woff?sha=3114f1256') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('fonts/hack-bolditalic.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-bolditalic.woff?sha=3114f1256') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+html {
+    font-family: 'Hack', monospace;
+    background: #282c34;
+    color: #abb2bf;
+}
+
+body {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.command-prompt {
+    color: #57cc1f;
+}
+
+.output span {
+    display: block;
+}
+
+.output ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.output li::before {
+    content: '\002D';
+    padding-right: 0.2rem;
+}
+
+.output a:visited, a:link, a:hover, a:active {
+    color: inherit;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+}
+
+.directory-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.highlight {
+    padding: 0.05rem 0.5rem;
+}
+
+.directory {
+    font-weight: bold;
+    background: #4da4ed;
+    color: #eeeeee;
+}
+
+.branch {
+    background: #8dc269;
+    color: #3f4451;
+}
+
+.command-result {
+    background: #3f4451;
+    color: #8ac269;
+}
+
+.cursor {
+    margin-left: 0.5rem;
+    border: 1px solid #abb2bf;
+}
