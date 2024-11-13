@@ -11,8 +11,8 @@ all: dist
 
 dist:
 	$(q)mkdir -p dist
-	$(q)cp index.html dist/
-	$(q)cp styles.css dist/
+	$(q)cp *.html dist/
+	$(q)cp *.css dist/
 	$(q)cp favicon.svg dist/
 	$(q)cp -r fonts dist/
 
